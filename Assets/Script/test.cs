@@ -32,19 +32,19 @@ public class test : MonoBehaviour
         while (elapsedTime < _fadeDuration)
         {
             elapsedTime += Time.deltaTime; //  時間経過を増やす
-            _fadePanel.color = Color.Lerp(startColor, endColor, elapsedTime / _fadeDuration);
-            yield return null;
+            _fadePanel.color = Color.Lerp(startColor, endColor, elapsedTime / _fadeDuration);//startColorからendColorへelapsedTime / _fadeDurationの変化量で変化する
+            yield return null;//Whileの引数から外れるまで繰り返すために戻す
         }
 
-        _fadePanel.color = endColor;
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene(Scene2);
+        _fadePanel.color = endColor;//カラーを真っ黒の状態に固定
+        SceneManager.sceneLoaded += OnSceneLoaded;//シーンを読み込んだ時にOnSceneLoadedを読み込むために登録している
+        SceneManager.LoadScene(Scene2);//シーンのロード
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        StartCoroutine(FadeIn());
+        //SceneManager.sceneLoaded -= OnSceneLoaded;//登録の解除をしている
+        StartCoroutine(FadeIn());　//FadeIn()を呼び出している
     }
 
     private IEnumerator FadeIn()
@@ -60,7 +60,7 @@ public class test : MonoBehaviour
             yield return null;
         }
 
-        _fadePanel.color = endColor;
-        _fadePanel.enabled = false;
+        _fadePanel.color = endColor;//透明に確定している
+        _fadePanel.enabled = false;//パネルの非表示
     }
 }
