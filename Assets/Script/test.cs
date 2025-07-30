@@ -43,7 +43,7 @@ public class test : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //SceneManager.sceneLoaded -= OnSceneLoaded;//“o˜^‚Ì‰ğœ‚ğ‚µ‚Ä‚¢‚é
+        SceneManager.sceneLoaded -= OnSceneLoaded;//“o˜^‚Ì‰ğœ‚ğ‚µ‚Ä‚¢‚é
         StartCoroutine(FadeIn());@//FadeIn()‚ğŒÄ‚Ño‚µ‚Ä‚¢‚é
     }
 
